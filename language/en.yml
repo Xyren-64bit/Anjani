@@ -165,6 +165,7 @@ fed-info-text: |
   **Creator: **{}
   **Total Admins: ** `{}`
   **Total banned user: ** `{}`
+  **Total banned channel: ** `{}`
   **Total groups connected: ** `{}`
 fed-admin-only: Only federation admin can do this!
 fed-admin-text: |
@@ -176,11 +177,19 @@ fed-ban-self: Please... I'm not that dumb!
 fed-ban-owner: How can a federation owner banned in his own federation!
 fed-ban-protected: I won't fban this user!
 fed-ban-info-update: |
-  **New Federation Ban**
+  **Federation Ban Reason Update**
   **Federation: **{}
   **Federation admin: **{}
   **User: ** {}
   **User ID: ** {}
+  **Old reason**: {}
+  **New reason**: {}
+fed-ban-chat-info-update: |
+  **Federation Ban Reason Update**
+  **Federation: **{}
+  **Federation admin: **{}
+  **Channel: ** {}
+  **Channel ID: ** {}
   **Old reason**: {}
   **New reason**: {}
 fed-ban-info: |
@@ -190,6 +199,13 @@ fed-ban-info: |
   **User: ** {}
   **User ID: ** {}
   **Reason**: {}
+fed-ban-chat-info: |
+  **New Federation Ban**
+  **Federation: **{}
+  **Federation admin: **{}
+  **Channel: ** {}
+  **Chat ID: ** {}
+  **Reason**: {}
 fed-user-not-banned: This user is not Fbanned!
 fed-unban-info: |
   **Un-FedBan**
@@ -197,6 +213,12 @@ fed-unban-info: |
   **Federation admin: **{}
   **User: **{}
   **User ID: **`{}`
+fed-unban-info-chat: |
+  **Un-FedBan**
+  **Federation: **{}
+  **Federation admin: **{}
+  **Channel: **{}
+  **Chat ID: **{}
 fed-stat-banned: |
   User is banned in that federation
   **Reason: ** {}
@@ -218,6 +240,7 @@ fed-log-set-chnl: "This channel has been set as the fed log for **{}**\nall fed 
 fed-invalid-identity: The user who clicked confirmation button was not the fed creator.\nOnly the federation creator can set the fed log.
 fed-log-unset: Federation log of **{}** is unset.
 fed-autoban: "User {} is banned in the current federation (**{}**), and has been removed.\n**Reason:** {}\n**Banned on:** {}"
+fed-autoban-chat: "Channel {} is banned in the current federation (**{}**), and has been removed.\n**Reason:** {}\n**Banned on:** {}"
 fed-autoleave: "I no longger have permission to ban members in this chat. Leaving fed \"{}\"(`{}`)"
 #endregion
 #region language
