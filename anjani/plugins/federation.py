@@ -216,7 +216,7 @@ class Federation(plugin.Plugin):
             user_data["fed_name"] = data["name"]
             user_data["type"] = "user"
             return user_data
-        if str(user) not in data.get("banned_chat", {}):
+        if str(user) in data.get("banned_chat", {}):
             channel_data = data["banned_chat"][str(user)]
             channel_data["fed_name"] = data["name"]
             channel_data["type"] = "chat"
@@ -601,7 +601,7 @@ class Federation(plugin.Plugin):
             if ctx.args and not reply_msg:
                 return await self.text(chat.id, "err-peer-invalid")
 
-            if not reply_msg or not reply_msg.from_user or not reply_msg.sender_chat:
+            if not reply_msg or not (reply_msg.from_user or reply_msg.sender_chat):
                 return await self.text(chat.id, "fed-no-ban-user")
 
             target = reply_msg.from_user or reply_msg.sender_chat
@@ -681,7 +681,7 @@ class Federation(plugin.Plugin):
         if not target:
             if ctx.args and not reply_msg:
                 return await self.text(chat.id, "err-peer-invalid")
-            if not reply_msg or not reply_msg.from_user or not reply_msg.sender_chat:
+            if not reply_msg or not (reply_msg.from_user or reply_msg.sender_chat):
                 return await self.text(chat.id, "fed-no-ban-user")
 
             target = reply_msg.from_user or reply_msg.sender_chat
