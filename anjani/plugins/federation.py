@@ -623,7 +623,7 @@ class Federation(plugin.Plugin):
 
         if isinstance(target, User):
             string = await self.__user_fban(chat, target, banner, reason, data)
-        elif target.type and target.type == "channel":
+        elif isinstance(target, Chat):
             string = await self.__channel_fban(chat, target, banner, reason, data)
         else:
             return await self.text(chat.id, "err-peer-invalid")
