@@ -127,13 +127,13 @@ class Federation(plugin.Plugin):
 
     async def on_message(self, message: Message) -> None:
         chat = message.chat
-        user = message.from_user
-        if not user:
+        target = message.from_user or message.sender_chat
+        if not target or not chat:
             return
 
-        banned = await self.is_fbanned(chat.id, user.id)
+        banned = await self.is_fbanned(chat.id, target.id)
         if banned:
-            await self.fban_handler(message.chat, user, banned)
+            await self.fban_handler(chat, target, banned)
 
     @staticmethod
     def is_fed_admin(data: MutableMapping[str, Any], user: int) -> bool:
@@ -224,7 +224,9 @@ class Federation(plugin.Plugin):
 
         return None
 
-    async def fban_handler(self, chat: Chat, user: User, data: MutableMapping[str, Any]) -> None:
+    async def fban_handler(
+        self, chat: Chat, user: Union[User, Chat], data: MutableMapping[str, Any]
+    ) -> None:
         try:
             await asyncio.gather(
                 self.bot.client.send_message(
