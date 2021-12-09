@@ -194,6 +194,12 @@ class Federation(plugin.Plugin):
         """Remove banned user"""
         await self.db.update_one({"_id": fid}, {"$unset": {f"banned.{user}": None}}, upsert=True)
 
+    async def unfban_chat(self, fid: str, chat: int) -> None:
+        """Remove banned chat"""
+        await self.db.update_one(
+            {"_id": fid}, {"$unset": {f"banned_chat.{chat}": None}}, upsert=True
+        )
+
     async def check_fban(self, target: int) -> Tuple[Optional[util.db.AsyncCursor], bool]:
         """Check user banned list"""
         query = {f"banned.{target}": {"$exists": True}}
@@ -688,11 +694,13 @@ class Federation(plugin.Plugin):
 
             target = reply_msg.from_user or reply_msg.sender_chat
 
-        if str(target.id) not in data.get("banned", {}).keys():
+        if (str(target.id) not in (data.get("banned", {}).keys())) and (
+            str(target.id) not in (data.get("banned_chat", {}).keys())
+        ):
             return await self.text(chat.id, "fed-user-not-banned")
 
-        await self.unfban_user(data["_id"], target.id)
         if isinstance(target, User):
+            await self.unfban_user(data["_id"], target.id)
             text = await self.text(
                 chat.id,
                 "fed-unban-info",
@@ -702,6 +710,7 @@ class Federation(plugin.Plugin):
                 target.id,
             )
         else:
+            await self.unfban_chat(data["_id"], target.id)
             text = await self.text(
                 chat.id,
                 "fed-unban-info-chat",
