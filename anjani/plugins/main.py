@@ -221,8 +221,14 @@ class Main(plugin.Plugin):
                     InlineKeyboardButton(
                         text=await self.text(chat.id, "start-help-button"),
                         url=f"t.me/{self.bot.user.username}?start=help",
-                    ),
-                ]
+                    )
+                ], 
+                [
+                   InlineKeyboardButton(
+                        text=await self.text(chat.id, "fbanlog-button"),
+                        url=f"https://t.me/CatatanBotTelegram",
+                     ), 
+                 ]
             ]
             await ctx.respond(
                 await self.text(chat.id, "start-pm", self.bot_name),
@@ -246,11 +252,11 @@ class Main(plugin.Plugin):
                         [
                             InlineKeyboardButton(
                                 text=await self.text(chat.id, "help-chat-button"),
-                                url=f"t.me/{self.bot.user.username}?start=help",
+                                url=f"https://t.me/CatatanBotTelegram",
                             )
                         ]
                     ]
-                ),
+                ), 
             )
             return
 
