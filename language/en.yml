@@ -19,6 +19,7 @@ help-chat: Contact me in PM to get the list of possible commands.
 add-to-group-button: Add to Group 👥
 start-help-button: Help & Commands ❔
 help-chat-button: Help
+fbanlog-button: Fban Log
 back-button: ⬅️ Back
 markdown-helper: |
   Markdown is a very powerful formatting tool supported by telegram. {} has some enhancements, to make sure that saved messages are correctly parsed, and to allow you to create buttons.\n
