@@ -18,6 +18,7 @@ help-chat: Hubungi saya di pesan pribadi untuk mendapatkan daftar perintah saya.
 add-to-group-button: Tambahkan saya
 start-help-button: Ban
 help-chat-button: Bantuan
+fbanlog-button: Fban Log
 back-button: ⬅️ Kembali
 markdown-helper: |
   Markdown adalah alat pemformatan yang sangat berguna yang didukung oleh telegram. {} memiliki beberapa penyempurnaan, untuk memastikan bahwa pesan yang tersimpan diurai dengan benar, dan memungkinkan untuk anda membuat tombol-tombol.\n
