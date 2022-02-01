@@ -1,8 +1,7 @@
 #region Main
 start-pm: |
-  Hai! Salam kenal nama saya adalah **{}**.
-  Saya dibuat untuk mengelola grup anda dengan menyenangkan dan mudah!
-  **Dikelola dengan ❤️ oleh:** [Tim UserbotIndo](https://t.me/userbotindo)\n
+  Hai! Salam kenal nama saya adalah **{}**. Saya dibuat untuk mengelola grup anda dengan menyenangkan dan mudah!\n
+  **Dikelola dengan ❤️ oleh:** [Xyren](https://t.me/IndonesiaNegaraLucu)\n
   Apakah anda bingung bagaimana menggunakan saya? Silahkan anda menggunakan /help untuk melihat perintah yang dapat anda gunakan.\n
   Silahkan anda bergabung ke [Grup Support](https://t.me/userbotindo) jika kamu ada pertanyaan dan masalah dalam menggunakan saya ya!\n
   Ingin menambahkan saya ke grup? Silahkan klik tombol di bawah ini!
@@ -17,7 +16,7 @@ help-pm: |
 start-chat: Memberi anda salam hangat & berharap hari anda menyenangkan!
 help-chat: Hubungi saya di pesan pribadi untuk mendapatkan daftar perintah saya.
 add-to-group-button: Tambahkan saya
-start-help-button: Bantuan & Perintah ❔
+start-help-button: Ban
 help-chat-button: Bantuan
 back-button: ⬅️ Kembali
 markdown-helper: |
